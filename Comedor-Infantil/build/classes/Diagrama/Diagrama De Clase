@@ -1,0 +1,117 @@
+@startuml
+
+' Definición de las clases
+class Niño {
+    - String numeroMatricula
+    - String nombreCompleto
+    - String fechaNacimiento
+    - String fechaIngreso
+    - String fechaBaja
+    + String getNumeroMatricula()
+    + void setNumeroMatricula(String numeroMatricula)
+    + String getNombreCompleto()
+    + void setNombreCompleto(String nombreCompleto)
+    + String getFechaNacimiento()
+    + void setFechaNacimiento(String fechaNacimiento)
+    + String getFechaIngreso()
+    + void setFechaIngreso(String fechaIngreso)
+    + String getFechaBaja()
+    + void setFechaBaja(String fechaBaja)
+}
+
+class PersonaAutorizada {
+    - String dni
+    - String nombreCompleto
+    - String direccion
+    - String telefono
+    - String relacionConNino
+    + String getDni()
+    + void setDni(String dni)
+    + String getNombreCompleto()
+    + void setNombreCompleto(String nombreCompleto)
+    + String getDireccion()
+    + void setDireccion(String direccion)
+    + String getTelefono()
+    + void setTelefono(String telefono)
+    + String getRelacionConNino()
+    + void setRelacionConNino(String relacionConNino)
+}
+
+class Pago {
+    - String dniPagador
+    - String nombreCompleto
+    - String direccion
+    - String telefono
+    - String numeroCuentaBancaria
+    + String getDniPagador()
+    + void setDniPagador(String dniPagador)
+    + String getNombreCompleto()
+    + void setNombreCompleto(String nombreCompleto)
+    + String getDireccion()
+    + void setDireccion(String direccion)
+    + String getTelefono()
+    + void setTelefono(String telefono)
+    + String getNumeroCuentaBancaria()
+    + void setNumeroCuentaBancaria(String numeroCuentaBancaria)
+}
+
+class Alergia {
+    - String ingredienteProhibido
+    + String getIngredienteProhibido()
+    + void setIngredienteProhibido(String ingredienteProhibido)
+}
+
+class ConsumoComida {
+    - String fecha
+    - Menu menu
+    + String getFecha()
+    + void setFecha(String fecha)
+    + Menu getMenu()
+    + void setMenu(Menu menu)
+}
+
+class Menu {
+    - int numeroMenu
+    - String nombrePlato
+    - List<String> ingredientes
+    + int getNumeroMenu()
+    + void setNumeroMenu(int numeroMenu)
+    + String getNombrePlato()
+    + void setNombrePlato(String nombrePlato)
+    + List<String> getIngredientes()
+    + void setIngredientes(List<String> ingredientes)
+}
+
+class Asesor {
+    - String codigoAsesor
+    - String nombreCompleto
+    - String direccion
+    - String titulacionProfesional
+    - List<String> areasAsesoria
+    - List<String> empresasAsesora
+    - String fechaInicio
+    + String getCodigoAsesor()
+    + void setCodigoAsesor(String codigoAsesor)
+    + String getNombreCompleto()
+    + void setNombreCompleto(String nombreCompleto)
+    + String getDireccion()
+    + void setDireccion(String direccion)
+    + String getTitulacionProfesional()
+    + void setTitulacionProfesional(String titulacionProfesional)
+    + List<String> getAreasAsesoria()
+    + void setAreasAsesoria(List<String> areasAsesoria)
+    + List<String> getEmpresasAsesora()
+    + void setEmpresasAsesora(List<String> empresasAsesora)
+    + String getFechaInicio()
+    + void setFechaInicio(String fechaInicio)
+}
+
+' Relaciones entre clases
+Niño "1" *-- "0..*" PersonaAutorizada : tiene >
+Niño "1" *-- "1" Pago : tiene >
+Niño "1" *-- "0..*" Alergia : tiene >
+Niño "1" *-- "0..*" ConsumoComida : tiene >
+ConsumoComida "1" *-- "1" Menu : consume >
+Asesor --|> Niño : asesora >
+
+@enduml
