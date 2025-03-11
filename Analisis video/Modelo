@@ -1,0 +1,108 @@
+@startuml
+
+class Empresa {
+-String  nit;
+-String  Nombre;
+-String tipo;
+-String web;
+-int telefono;
+-String Email;
+-String direccion;
+-List<Empleado> ListaDeEmpleados;
+-List<Proyecto> ListaDeProyectos;
+}
+class proyecto {
+-String NombreClave;
+-String Denominacion;
+-date FechaInicio;
+-date FechaFin;
+-String  estado;
+-Empresa  empresa;
+-List<Empleado> ListaDeEmpleados;
+-Promotor empleadoPromotor;
+- List<Tarea> listaDeTareas;
+}
+class Empleado{
+# String DNI;
+# String Nombre;
+# String Apellido;
+# String direccion;
+# String Email;
+# String telefono;
+# -date FechaContrato;
+# Empresa empresa;
+#List<Proyecto> ListaDeProyectos;
+# List<Tarea> listaDeTareas;
+}
+class Promotor{
+-List<Proyecto> ListaDeProyectos;
+}
+class Tarea{
+-String descripcion;
+-String tipo;
+-date FechaInicioEstimado;
+-date FechaInicioReal;
+-int duracionEstimada;
+-int duracionReal;
+-List<Empleado> ListaDeEmpleados;
+-Proyecto proyecto;
+-List<Documento> listaDeDocumentos;
+}
+class Documento {
+-String Codigo;
+-String descripcion;
+-String tipo;
+- Tarea tarea;
+- list<Version> listaDeVersiones;
+}
+class Version{
+-date fecha;
+-String descripcion;
+-File; archivo;
+- Documento documento;
+
+}
+class ManoDeObra{
+-Empelado trabajador;
+-Proyecto  proyecto;
+-date  FechaInicio;
+-date FechaFin;
+-String rol;
+
+}
+class PlanDeTrabajo{
+-Tarea tarea;
+-Empelado trabajador;
+-date FechaInicio;
+-date FechaFin;
+-String descripcion;
+}
+Empleado "*" -- "1" Empresa : Trabaja
+
+Empleado <|-- Promotor : Es un
+
+Proyecto "*" -- "1" Empresa :  Tiene
+
+Proyecto "*" -- Promotor : Promueve
+
+Proyecto "1" -- "*" Tarea : Conformado
+
+Tarea "1" .. "*" Documento : Genera
+
+Documento "1" -- Version :   Tiene
+
+Empleado "*" -- "*" Proyecto : Trabaja
+(Empleado, Proyecto) .. ManoDeObra
+
+Empleado "*"  --  "*" Tarea : Realiza
+(Empleado, Tarea) .. PlanDeTrabajo
+
+
+
+
+
+
+  
+
+
+@enduml
