@@ -2,7 +2,7 @@
 
 Este proyecto es un sistema de gestión para un comedor infantil que permite registrar niños, personas autorizadas, pagos, menús, alergias y consumo de comidas.
 
-((https://www.youtube.com/watch?v=CaIv4xacx_M))
+(https://youtu.be/IzeNg73FxV4)
 
 ## Ejecución del Proyecto
 1. Clona el repositorio.
