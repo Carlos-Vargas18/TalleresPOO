@@ -1,0 +1,3 @@
+Profesor
+Persona
+Estudiante
