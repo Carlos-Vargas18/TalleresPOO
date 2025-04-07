@@ -1,0 +1,3 @@
+Circulo
+Rectangulo
+Figura

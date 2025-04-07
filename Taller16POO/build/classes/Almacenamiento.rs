@@ -1,0 +1,4 @@
+GestorArchivos
+Almacenamiento
+AlmacenamientoLocal
+AlmacenamientoNube
