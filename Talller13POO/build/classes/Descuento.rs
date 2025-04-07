@@ -1,0 +1,4 @@
+DescuentoFijo
+ProcesadorDescuentos
+Descuento
+DescuentoPorcentaje
